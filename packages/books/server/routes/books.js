@@ -14,7 +14,7 @@ module.exports = function(Books, app, auth) {
 
   app.route('/books')
     .get(books.all)
-    .post(books.create);
+    .post(books.create, books.addAuthor);
   app.route('/books/:bookId')
     .get(auth.isMongoId, books.show)
     .put(auth.isMongoId, hasAuthorization, books.update)

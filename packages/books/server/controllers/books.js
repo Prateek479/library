@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 var mongoose = require('mongoose'),
+  Authors = mongoose.model('Author'),
   Books = mongoose.model('Books'),
   _ = require('lodash');
 
@@ -23,7 +24,7 @@ exports.book = function(req, res, next, id) {
 /**
  * Create an book
  */
-exports.create = function(req, res) {
+exports.create = function(req, res, next) {
   var book = new Books(req.body);
   book.user = req.user;
 
@@ -33,11 +34,24 @@ exports.create = function(req, res) {
         error: 'Cannot save the book'
       });
     }
-    res.json(book);
-
+    // next();
+    req.book = book;
+    next();
   });
 };
-
+exports.addAuthor = function(req, res) {
+  console.log(req.book);
+  Authors.update({
+    _id: req.book.belongTo
+  }, {
+    $addToSet: {
+      books: req.book._id
+    }
+  }, function(err) {
+    if (!err)
+      res.json(req.book);
+  });
+};
 /**
  * Update an book
  */
