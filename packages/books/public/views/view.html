@@ -1,0 +1,31 @@
+<section data-ng-controller="BooksController" data-ng-init="findAll()">
+  <accordion close-others="oneAtATime" ng-repeat="book in books">
+    <accordion-group heading="{{book.name}}">
+    <div class="col=md-12">
+      <div class="col-md-3">
+        Description :
+      </div>
+      <div class="col-md-9">
+        {{book.description}}
+      </div>
+      <div class="col-md-3">
+        Price :
+      </div>
+      <div class="col-md-9">
+        {{book.price}}
+      </div>
+      <div class="col-md-3">
+        Author :
+      </div>
+      <div class="col-md-9">
+        {{book.belongTo.name}}
+      </div>
+      <div class="col-md-3">
+        Release Date :
+      </div>
+      <div class="col-md-9">
+        {{book.releaseDate}}
+      </div>
+    </accordion-group>
+  </accordion>
+</section>

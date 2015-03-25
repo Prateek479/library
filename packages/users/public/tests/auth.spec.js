@@ -184,9 +184,9 @@
       });
 
       var ForgotPasswordCtrl,
-          scope,
-          $rootScope,
-          $httpBackend ;
+        scope,
+        $rootScope,
+        $httpBackend;
 
       beforeEach(inject(function($controller, _$rootScope_, _$httpBackend_) {
 
@@ -209,7 +209,7 @@
 
       it('should display success response on success', function() {
         scope.user.email = 'test@test.com';
-        $httpBackend.when('POST', '/forgot-password').respond(200,'Mail successfully sent');
+        $httpBackend.when('POST', '/forgot-password').respond(200, 'Mail successfully sent');
         scope.forgotpassword();
         $httpBackend.flush();
 
@@ -218,16 +218,12 @@
       });
       it('should display error response on failure', function() {
         scope.user.email = 'test@test.com';
-        $httpBackend.when('POST', '/forgot-password').respond(400,'User does not exist');
+        $httpBackend.when('POST', '/forgot-password').respond(400, 'User does not exist');
         scope.forgotpassword();
         $httpBackend.flush();
 
         expect(scope.response).toEqual('User does not exist');
-
       });
-
     });
   });
-
-
 }());

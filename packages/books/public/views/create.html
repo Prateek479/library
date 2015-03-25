@@ -1,0 +1,71 @@
+<div class="" data-ng-controller="BooksController">
+  <form data-ng-submit="create(book,author)">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"> Add Book Details </h3>
+      </div>
+      <div class="panel-body">
+        <div class="panel-body-left-container col-md-10">
+          <div class="panel-items">
+            <label class="col-md-4 column">
+              Book Name :
+            </label>
+            <div class="col-md-8 column">
+              <input type="text" class="form-control" data-ng-model="book.name" placeholder="Book Name" required/>
+            </div>
+          </div>
+          <div class="panel-items">
+            <label class="col-md-4 column">
+              Book Summary :
+            </label>
+            <div class="col-md-8 column">
+              <textarea rows="2" class="form-control" data-ng-model="book.description" placeholder="Book Description" required/>
+            </div>
+          </div>
+          <hr/>
+          <div class="panel-items">
+            <label class="col-md-4 column">
+              Release Date :
+            </label>
+            <div class="col-md-8 column">
+              <div class="datepicker-wrapper">
+                <input type="text"
+                datepicker-popup="dd-MMMM-yyyy"
+                ng-model="book.releaseDate"
+                is-open="eventCalenderOpen"
+                ng-click = "eventCalenderOpen = true"
+                max-date="maxDate"
+                min-date="'{{current_date | date : 'yyyy-MM-dd'}}'"
+                datepicker-options="dateOptions"
+                ng-required="true"
+                close-text="Close"
+                class="form-control datepicker-items input-box" />
+                <span class="datepicker-items calendar-btn"  ng-click = "eventCalenderOpen = true">
+                  <!--                   <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button> -->
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-items event-time-item" >
+            <label class="col-md-4 column">
+              Book Price :
+            </label>
+            <div class="col-md-8 column">
+              <input type="text" class="form-control" data-ng-model="book.price" placeholder="Book Price" required/>
+            </div>
+          </div>
+          <div class="panel-items event-time-item" >
+            <label class="col-md-4 column">
+              Book Author :
+            </label>
+            <div class="col-md-8 column">
+              <input type="hidden" style="width:300px" class="row clearfix" ui-select2="authorOptions" ng-model="author" placeholder="Enter Area" />
+            </div>
+          </div>
+          <hr/>
+          <button type="submit" class="btn green-btn submit">Create</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,39 @@
+<div class="" data-ng-controller="AuthorController">
+  <form data-ng-submit="create(author)">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"> Add Author Details </h3>
+      </div>
+      <div class="panel-body">
+        <div class="panel-body-left-container col-md-10">
+          <div class="panel-items">
+            <label class="col-md-4 column">
+              Author Name :
+            </label>
+            <div class="input-group col-md-8 column">
+              <input type="text" class="form-control" data-ng-model="author.name" placeholder="Author Name" required/>
+            </div>
+          </div>
+          <div class="panel-items">
+            <label class="col-md-4 column">
+              Author Age  :
+            </label>
+            <div class="input-group col-md-8 column">
+              <input type="text" class="form-control" data-ng-model="author.age" placeholder="Author Age" required/>
+            </div>
+          </div>
+          <div class="panel-items" >
+            <label class="col-md-4 column">
+              Author Location :
+            </label>
+            <div class="input-group col-md-8 column">
+              <input type="text" class="form-control" data-ng-model="author.location" placeholder="Author Location" required/>
+            </div>
+          </div>
+          <hr/>
+          <button type="submit" class="btn green-btn submit">Create</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
