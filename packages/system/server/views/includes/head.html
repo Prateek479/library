@@ -18,21 +18,22 @@
   <meta property="fb:admins" content="APP_ADMIN">
 
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/bower_components/select2/select2.css">
 
   {% for file in aggregatedassets.header.css %}
-    <link rel="stylesheet" href="{{file}}">
+  <link rel="stylesheet" href="{{file}}">
   {% endfor %}
 
   {% for file in aggregatedassets.footer.css %}
-    <link rel="stylesheet" href="{{file}}">
+  <link rel="stylesheet" href="{{file}}">
   {% endfor %}
 
   {% for file in aggregatedassets.header.js %}
-    <script type="text/javascript" src="{{file}}"></script>
+  <script type="text/javascript" src="{{file}}"></script>
   {% endfor %}
 
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-</head>
+  </head>
