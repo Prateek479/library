@@ -8,12 +8,17 @@ angular.module('mean.author').controller('AuthorController', ['$scope', 'Global'
     };
     $scope.author = {};
     $scope.create = function(author) {
-      var newAuthor = new Author(author);
-      newAuthor.$save(function(res) {
-        window.location.reload();
-      }, function() {
-
-      });
+      var reg = /^\d+$/;
+      if (reg.test(author.age)) {
+        var newAuthor = new Author(author);
+        newAuthor.$save(function(res) {
+          window.location.reload();
+        }, function() {
+          // Error handling gose here
+        });
+      } else {
+        alert('Age should be a number');
+      }
     };
   }
 ]);

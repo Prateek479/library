@@ -58,13 +58,18 @@ angular.module('mean.books').controller('BooksController', ['$scope', '$location
     };
 
     $scope.create = function(book, author) {
-      book.belongTo = author.id;
-      var newBook = new Books(book);
-      newBook.$save(function(res) {
-        window.location.reload();
-      }, function(err) {
-
-      });
+      var reg = /^\d+$/;
+      if (reg.test(book.price)) {
+        book.belongTo = author.id;
+        var newBook = new Books(book);
+        newBook.$save(function(res) {
+          window.location.reload();
+        }, function(err) {
+          //Error handling Gose here
+        });
+      } else {
+        alert('price should be number');
+      }
     };
 
     $scope.remove = function(book) {
