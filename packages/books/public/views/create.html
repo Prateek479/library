@@ -32,16 +32,16 @@
                 <input type="text"
                 datepicker-popup="dd-MMMM-yyyy"
                 ng-model="book.releaseDate"
-                is-open="eventCalenderOpen"
-                ng-click = "eventCalenderOpen = true"
+                is-open="opened"
+                ng-click = "opened = true"
                 max-date="maxDate"
                 min-date="'{{current_date | date : 'yyyy-MM-dd'}}'"
                 datepicker-options="dateOptions"
                 ng-required="true"
                 close-text="Close"
                 class="form-control datepicker-items input-box" />
-                <span class="datepicker-items calendar-btn"  ng-click = "eventCalenderOpen = true">
-                  <button style="position:absolute; top:0px; right:0px" type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
+                <span class="datepicker-items calendar-btn">
+                  <button style="position:absolute; top:0px; right:0px" type="button" ng-click="openCalender($event)" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
                 </span>
               </div>
             </div>

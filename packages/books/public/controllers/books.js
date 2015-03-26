@@ -7,11 +7,18 @@ angular.module('mean.books').controller('BooksController', ['$scope', '$location
       name: 'books'
     };
     // According Listing
-
+    $scope.opened = false;
     $scope.oneAtATime = true;
     $scope.status = {
       isFirstOpen: true,
       isFirstDisabled: false
+    };
+    $scope.openCalender = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+
+      $scope.opened = true;
+      // $scope.opened = true;
     };
     var fetchAuthor = function(query) {
       $http.get('/fetch/author', {

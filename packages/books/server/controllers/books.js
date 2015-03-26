@@ -29,6 +29,7 @@ exports.create = function(req, res, next) {
   book.user = req.user;
 
   book.save(function(err) {
+
     if (err) {
       return res.status(500).json({
         error: 'Cannot save the book'
@@ -40,7 +41,6 @@ exports.create = function(req, res, next) {
   });
 };
 exports.addAuthor = function(req, res) {
-  console.log(req.book);
   Authors.update({
     _id: req.book.belongTo
   }, {

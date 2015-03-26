@@ -32,7 +32,6 @@ describe('<Unit Test>', function() {
       it('should be able to save without problems', function(done) {
         var _author = new Author(author);
         _author.save(function(err) {
-
           expect(err).to.be(null);
           _author.remove();
           done();
