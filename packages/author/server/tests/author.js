@@ -3,8 +3,9 @@
  * Module dependencies.
  */
 
-var mongoose = require('mongoose'),
-  Author = mongoose.model('Author');
+var expect = require('expect.js'),
+  mongoose = require('mongoose');
+var Author = mongoose.model('Author');
 
 /**
  * Globals
@@ -18,6 +19,7 @@ describe('<Unit Test>', function() {
   describe('Model Author:', function() {
 
     before(function(done) {
+
       author = {
         name: 'Full name',
         age: 'Author age',
@@ -30,6 +32,7 @@ describe('<Unit Test>', function() {
       it('should be able to save without problems', function(done) {
         var _author = new Author(author);
         _author.save(function(err) {
+
           expect(err).to.be(null);
           _author.remove();
           done();
@@ -80,7 +83,6 @@ describe('<Unit Test>', function() {
       });
     });
     after(function(done) {
-      this.timeout(10000);
       author.remove(function() {
         done();
       });

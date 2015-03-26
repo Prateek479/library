@@ -6,9 +6,9 @@
  * Module dependencies.
  */
 var expect = require('expect.js'),
-  mongoose = require('mongoose'),
-  Author = mongoose.model('Authors'),
-  Books = mongoose.model('Books');
+  mongoose = require('mongoose');
+var Author = mongoose.model('Author');
+var Books = mongoose.model('Books');
 
 /**
  * Globals
@@ -42,7 +42,7 @@ describe('<Unit Test>', function() {
       it('should be able to save without problems', function(done) {
         this.timeout(10000);
         return book.save(function(err, data) {
-          expect(err).to.be(null);
+          expect(err).to.be.a(null);
           expect(data.name).to.equal('Book Name');
           expect(data.price).to.equal('Book Price');
           expect(data.description).to.equal('Book Description');
