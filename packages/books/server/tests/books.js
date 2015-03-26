@@ -41,9 +41,9 @@ describe('<Unit Test>', function() {
     describe('Method Save', function() {
       it('should be able to save without problems', function(done) {
         return book.save(function(err, data) {
-          expect(err).to.be.a(null);
+          expect(err).to.be(null);
           expect(data.name).to.equal('Book Name');
-          expect(data.price).to.equal('Book Price');
+          expect(data.price).to.equal(45);
           expect(data.description).to.equal('Book Description');
           expect(data.belongTo.length).to.not.equal(0);
           expect(data.created.length).to.not.equal(0);
@@ -82,9 +82,28 @@ describe('<Unit Test>', function() {
         });
       });
 
+      //retrive by id
+      it("function #findOne", function(done) {
+        Books.findOne({
+          _id: book._id,
+        }, function(err, data) {
+          console.log('here is my data', data);
+          console.log('here is my err', err);
+
+          expect(err).to.be(null);
+          expect(data.name).to.equal('Book Name');
+          expect(data.price).to.equal(45);
+          expect(data.description).to.equal('Book Description');
+          expect(data.belongTo.length).to.not.equal(0);
+          expect(data.created.length).to.not.equal(0);
+          done();
+        });
+      });
+
     });
 
     afterEach(function(done) {
+      this.timeout(10000);
       book.remove(function() {
         author.remove(done);
       });
