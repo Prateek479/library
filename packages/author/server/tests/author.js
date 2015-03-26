@@ -22,7 +22,7 @@ describe('<Unit Test>', function() {
 
       author = {
         name: 'Full name',
-        age: 'Author age',
+        age: 24,
         location: 'Author Location'
       };
       done();
@@ -65,7 +65,7 @@ describe('<Unit Test>', function() {
 
       it('should show an error when try to save without age', function(done) {
         var _user = new Author(author);
-        _user.username = '';
+        _user.age = '';
         return _user.save(function(err) {
           expect(err).to.not.be(null);
           done();

@@ -22,16 +22,16 @@ var book;
 describe('<Unit Test>', function() {
   describe('Model Books:', function() {
     beforeEach(function(done) {
-      this.timeout(10000);
       author = new Author({
         name: 'Full name',
-        age: '24',
+        age: 24,
         location: 'Author Location'
       });
       author.save(function() {
         book = new Books({
           name: 'Book Name',
-          price: 'Book Price',
+          price: 45,
+          releaseDate: "2015-03-26T19:40:20.695Z",
           belongTo: author,
           description: 'Book Description'
         });
@@ -40,7 +40,6 @@ describe('<Unit Test>', function() {
     });
     describe('Method Save', function() {
       it('should be able to save without problems', function(done) {
-        this.timeout(10000);
         return book.save(function(err, data) {
           expect(err).to.be.a(null);
           expect(data.name).to.equal('Book Name');
@@ -53,9 +52,7 @@ describe('<Unit Test>', function() {
       });
 
       it('should be able to show an error when try to save without title', function(done) {
-        this.timeout(10000);
         book.title = '';
-
         return book.save(function(err) {
           expect(err).to.not.be(undefined);
           done();
@@ -63,9 +60,7 @@ describe('<Unit Test>', function() {
       });
 
       it('should be able to show an error when try to save without description', function(done) {
-        this.timeout(10000);
         book.content = '';
-
         return book.save(function(err) {
           expect(err).to.not.be(undefined);
           done();
@@ -73,18 +68,14 @@ describe('<Unit Test>', function() {
       });
 
       it('should be able to show an error when try to save without author', function(done) {
-        this.timeout(10000);
         book.belongTo = {};
-
         return book.save(function(err) {
           expect(err).to.not.be(undefined);
           done();
         });
       });
       it('should be able to show an error when try to save without price', function(done) {
-        this.timeout(10000);
         book.price = '';
-
         return book.save(function(err) {
           expect(err).to.not.be(undefined);
           done();
@@ -94,7 +85,6 @@ describe('<Unit Test>', function() {
     });
 
     afterEach(function(done) {
-      this.timeout(10000);
       book.remove(function() {
         author.remove(done);
       });
