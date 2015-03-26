@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-var expect = require('expect.js'),
-  mongoose = require('mongoose');
-var Author = mongoose.model('Author');
+var expect = require('expect.js'), // jshint ignore:line
+  mongoose = require('mongoose'),
+  Author = mongoose.model('Author');
 
 /**
  * Globals

@@ -28,7 +28,7 @@
               Release Date :
             </label>
             <div class="col-md-8 column">
-              <div class="datepicker-wrapper">
+              <div style="position:relative" class="datepicker-wrapper">
                 <input type="text"
                 datepicker-popup="dd-MMMM-yyyy"
                 ng-model="book.releaseDate"
@@ -41,7 +41,7 @@
                 close-text="Close"
                 class="form-control datepicker-items input-box" />
                 <span class="datepicker-items calendar-btn"  ng-click = "eventCalenderOpen = true">
-                  <!--                   <button type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button> -->
+                  <button style="position:absolute; top:0px; right:0px" type="button" class="btn btn-default"><i class="glyphicon glyphicon-calendar"></i></button>
                 </span>
               </div>
             </div>
@@ -59,7 +59,7 @@
               Book Author :
             </label>
             <div class="col-md-8 column">
-              <input type="hidden" style="width:300px" class="row clearfix" ui-select2="authorOptions" ng-model="author" placeholder="Enter Area" />
+              <input type="hidden" style="width:300px" class="row clearfix" ui-select2="authorOptions" ng-model="author" placeholder="Enter Author Name" />
             </div>
           </div>
           <hr/>
